@@ -31,9 +31,42 @@ def check_if_valid_tree(n):
                     q.push[neb]
                 else:
                     if parent[n] != neb:
-                        # cycle present
+                        # cycle present there is a cross edge
                         return True
     for v in range(0,n):
         if visited[v] == -1:
             comp+=1
             bfs(v)
+
+
+def check_if_valid_tree_dfs(n):
+    adj_map ={}
+    visited = [-1] * n
+    parent = [-1] * n
+    comp = 0
+    def dfs(node):
+        visited[node] = 1
+        for neb in adj_map[node]:
+            if visited[neb]==-1:
+                #return True that there is a cycle
+                parent[neb] = node
+                if dfs(neb):
+                    return True
+            else:
+                if neb!=parent[node]:
+                    return True #There is a back edge
+        return False
+
+
+
+        
+    for v in range(0,n):
+        if visited[v] == -1:
+            comp+=1
+        if comp>1 :
+            return False
+        # If cycle is detected     
+        if dfs(v):
+            return False
+        else:
+            return True

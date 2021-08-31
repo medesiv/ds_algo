@@ -44,15 +44,15 @@ class Codec:
         :rtype: TreeNode
         """
 
-    def rserialize(self, root, string):
+    def rserialize(self, root, path):
         """ a recursive helper function for the serialize() function."""
         # check base case
         if root is None:
-            string += 'None,'
+            path += 'None,'
         else:
-            string += str(root.val) + ','
-            string = self.rserialize(root.left, string)
-            string = self.rserialize(root.right, string)
+            path += str(root.val) + ','
+            path = self.rserialize(root.left, path)
+            path = self.rserialize(root.right, path)
         return string
 
 nn = TreeNode(1)

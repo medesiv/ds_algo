@@ -32,7 +32,7 @@ def nck_combinations(nums,k):
         if i > len(nums)-1:
             return
 
-        helper(nums,k,slate,i+1)
+        helper(nums,k,slate, i+1)
         slate.append(nums[i])
         helper(nums, k, slate, i + 1)
         slate.pop()

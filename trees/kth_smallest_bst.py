@@ -45,7 +45,7 @@ Time is O(h+k)
 """
 
 def k_smallest_number3(root,k):
-    count=[0]
+    count=[0] #same as declaring count as non-local in inner func
     res = [None]
     def dfs(node,k):
         if node is None:
@@ -83,7 +83,7 @@ def k_smallest_number2(root, k):
     return res
 
 def k_smallest_number3(root, k):
-    num = {'val':k} # use mutable objects incase you want to modify immutable numbers in nested functions
+    num = {'val':k} # use mutable objects so that they point to a pointer address in memory mimicing global value
     def helper3(root):
         if not root:
             return 0

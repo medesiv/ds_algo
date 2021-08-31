@@ -45,18 +45,18 @@ permute_n_distinct(S)
 
 
 
-def permute_set_based(orig_str, current_str = ''):
-    diff = set(orig_str) - set(current_str)
-    calls.append(1)
-    if len(diff) == 0:
-        permutations.append(current_str)
-    else:
-        for char in diff:
-            permute_set_based(orig_str, current_str + char)
-    return (calls, permutations)
-calls = []
-permutations = []
-string_to_permute = '123'
+# def permute_set_based(orig_str, current_str = ''):
+#     diff = set(orig_str) - set(current_str)
+#     calls.append(1)
+#     if len(diff) == 0:
+#         permutations.append(current_str)
+#     else:
+#         for char in diff:
+#             permute_set_based(orig_str, current_str + char)
+#     return (calls, permutations)
+# calls = []
+# permutations = []
+# string_to_permute = '123'
 
-permute_set_based(string_to_permute)
-print('sorted permutations: ', sorted(permutations))
+# permute_set_based(string_to_permute)
+# print('sorted permutations: ', sorted(permutations))

@@ -21,32 +21,35 @@ Output:  1
 
 """
 
-"""
-1. Represent the graph in adjacent list / adjacent matrix
-2. BFS
-3. Driver Code
-"""
-
-"""
-Time Complexity O(n+m) n = vertices m = edges
-"""
-
-
-"""
-psuedo code:
-
-def bfs(src):
-    q = []
-    visited =[]
-    q.push(src)
-    visited[src] = 1
-    while q:
-        n = q.pop(0)
-        #for neighbour in adj list
-        for neb in adj:
-            if visited[neb]==-1:
-                visited[neb]=1
-                q.push[neb]
-            else:
-
-"""
+from collections import defaultdict
+class Solution:
+    
+    def __init__(self):
+        self.mp = defaultdict(list)
+        self.visited = set()
+        
+    def countComponents(self, n: int, edges: List[List[int]]) -> int:
+        comp = 0
+        for e in edges:
+            self.mp[e[0]].append(e[1])
+            self.mp[e[1]].append(e[0])
+            
+        for v in range(n):
+            if v not in self.visited:
+                self.bfs(v)
+                comp+=1
+                
+        return comp
+        
+        
+    def bfs(self,v):
+        q = []
+        q.append(v)
+        self.visited.add(v)
+        while len(q)>0:
+            node = q.pop(0)
+            for neb in self.mp[node]:
+                if neb not in self.visited:
+                    self.visited.add(neb)
+                    q.append(neb)
+            

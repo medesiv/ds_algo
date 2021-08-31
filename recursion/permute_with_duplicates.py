@@ -33,21 +33,19 @@ def permtations_with_dups_alt(arr):
         nonlocal res
         if i == len(arr)-1:
             res.append(arr.copy())
-        used = set()
         for k in range(i,len(arr)):
             if(k!=i and arr[k]==arr[i]): #instad of using a set
                 continue
             arr[i],arr[k] = arr[k],arr[i]
             helper2(arr,i+1)
             arr[i],arr[k] = arr[k],arr[i]
-            used.add(arr[k])
     helper2(arr,0)
     return res
 
 
 nums = [1,2,3]
-nums2 = [1,1,2]
-print(permtations_with_dups(nums2))
+nums2 = [1,2,1]
+# print(permtations_with_dups(nums2))
 
-#print(permtations_with_dups_alt(nums2))
+print(permtations_with_dups_alt(nums2))
 

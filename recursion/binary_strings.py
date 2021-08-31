@@ -2,7 +2,7 @@
 #[000,001,010..111]
 
 
-#DFS -- using slate approach if slate == 0 we need to print is the base case
+#DFS -- using slate approach if n == 0 we need to print slate the base case
 #Here space complexity is O(n) as max. worker threads will be of depth n
 
 def binary(n):
@@ -15,7 +15,7 @@ def bs_helper(slate,n):
 		bs_helper(slate+"0",n-1)
 		bs_helper(slate+"1",n-1)
 
-print(binary(5))
+#print(binary(5))
 
 
 
@@ -31,4 +31,25 @@ def binary_strings(n):
 			result.append(s+"1")
 		return result
 
-print(binary_strings(5))
+#print(binary_strings(5))
+
+
+
+def binary3(n):
+	res = []
+	def bs_helper3(slate,n):
+		if(n==0):
+			print(''.join([str(i) for i in (slate[:])]))
+		else:
+			slate.append(0)
+			bs_helper3(slate,n-1)
+			slate.pop()
+			slate.append(1)
+			bs_helper3(slate,n-1)
+			slate.pop()
+	bs_helper3([],n)
+	return res
+
+
+
+print(binary3(5))

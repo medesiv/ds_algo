@@ -18,6 +18,7 @@ class Graph:
         for vertex in range(len(self.adj_list)):
             if(len(self.adj_list[vertex])%2==1):
                 odd+=1
+        # No of vertices with odd degree are 0 indicates eulerian cycle
         if odd==0:
             return True
         else:
@@ -28,6 +29,7 @@ class Graph:
         for vertices in range(len(self.adj_list)):
             if len(self.adj_list[vertices])%2==1:
                 odd+=1
+        # No of vertices with odd degree are 0 or exactly 2 indicates eulerian path
         if odd == 0 or odd ==2:
             return True
         else:

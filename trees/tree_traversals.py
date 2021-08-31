@@ -61,11 +61,12 @@ def levelOrder(root):
 	q.append(root)
 	while len(q)>0:
 		print(q[0].val)
-		node = q.pop(0)
-		if node.left is not None:
-			q.append(node.left)
-		if node.right is not None:
-			q.append(node.right)
+		for _ in range(len(q)):
+			node = q.pop(0)
+			if node.left is not None:
+				q.append(node.left)
+			if node.right is not None:
+				q.append(node.right)
 
 
 # Driver code
